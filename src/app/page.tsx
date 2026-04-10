@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { LeadFormFallback } from "@/components/LeadFormFallback";
+import { NewsletterForm } from "@/components/NewsletterForm";
 import { getNewsletterFormAction } from "@/lib/formspree";
 
 export default function Home() {
   const newsletterAction = getNewsletterFormAction();
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || null;
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 md:px-8 md:py-12">
@@ -351,32 +354,20 @@ export default function Home() {
           Laissez votre email pour etre informe du lancement et recevoir les
           informations de precommande.
         </p>
-        <form
-          className="mt-6 flex flex-col gap-3 sm:flex-row"
-          action={newsletterAction}
-          method="POST"
-        >
-          <input
-            className="w-full rounded-full border border-slate-600 bg-slate-800 px-4 py-3 text-white placeholder:text-slate-400"
-            type="email"
-            name="email"
-            required
-            placeholder="votre@email.fr"
+        {newsletterAction ? (
+          <NewsletterForm
+            action={newsletterAction}
+            formClassName="mt-6 flex flex-col flex-wrap gap-3 sm:flex-row"
           />
-          <button
-            className="rounded-full bg-emerald-500 px-6 py-3 font-semibold text-white transition hover:bg-emerald-600"
-            type="submit"
-          >
-            Je suis interesse
-          </button>
-        </form>
+        ) : (
+          <LeadFormFallback contactEmail={contactEmail} />
+        )}
         <p className="mt-3 text-xs text-slate-400">
-          Pour les commandes detaillees, utilisez aussi la page{" "}
+          Pour les commandes détaillées :{" "}
           <Link href="/tarifs#commander" className="underline hover:text-white">
             Tarifs &amp; commande
           </Link>
-          . Configurez les URLs Formspree via les variables d&apos;environnement
-          Vercel.
+          .
         </p>
       </section>
     </main>

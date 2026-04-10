@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { LeadFormFallback } from "@/components/LeadFormFallback";
+import { OrderInquiryForm } from "@/components/OrderInquiryForm";
 import { getOrderFormAction } from "@/lib/formspree";
 
 export const metadata: Metadata = {
@@ -92,6 +94,7 @@ const comparisonRows: {
 
 export default function TarifsPage() {
   const formAction = getOrderFormAction();
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || null;
 
   return (
     <div className="bg-slate-50 text-slate-900">
@@ -198,102 +201,17 @@ export default function TarifsPage() {
             Indiquez votre structure et le volume souhaite. Nous vous repondons
             sous quelques jours ouvrables.
           </p>
-          <form
-            action={formAction}
-            method="POST"
-            className="mt-8 grid max-w-xl gap-4"
-          >
-            <label className="grid gap-1 text-sm">
-              <span className="font-medium text-slate-200">Nom complet</span>
-              <input
-                name="name"
-                required
-                autoComplete="name"
-                className="rounded-xl border border-slate-600 bg-slate-800 px-4 py-3 text-white placeholder:text-slate-500"
-                placeholder="Jean Dupont"
-              />
-            </label>
-            <label className="grid gap-1 text-sm">
-              <span className="font-medium text-slate-200">Email</span>
-              <input
-                name="email"
-                type="email"
-                required
-                autoComplete="email"
-                className="rounded-xl border border-slate-600 bg-slate-800 px-4 py-3 text-white placeholder:text-slate-500"
-                placeholder="contact@ecole.fr"
-              />
-            </label>
-            <label className="grid gap-1 text-sm">
-              <span className="font-medium text-slate-200">
-                Organisation (ecole, mairie, association…)
-              </span>
-              <input
-                name="organization"
-                required
-                className="rounded-xl border border-slate-600 bg-slate-800 px-4 py-3 text-white placeholder:text-slate-500"
-                placeholder="College Les Tilleuls"
-              />
-            </label>
-            <label className="grid gap-1 text-sm">
-              <span className="font-medium text-slate-200">
-                Offre souhaitee
-              </span>
-              <select
-                name="tier"
-                required
-                className="rounded-xl border border-slate-600 bg-slate-800 px-4 py-3 text-white"
-                defaultValue=""
-              >
-                <option value="" disabled>
-                  Choisir une offre
-                </option>
-                <option value="guide_numerique">
-                  Guide numerique (~29 EUR)
-                </option>
-                <option value="kit_complet">Kit complet (~79 EUR)</option>
-                <option value="kit_premium">
-                  Kit premium pre-assemble (~149 EUR)
-                </option>
-                <option value="plusieurs">
-                  Plusieurs offres / ne sais pas encore
-                </option>
-              </select>
-            </label>
-            <label className="grid gap-1 text-sm">
-              <span className="font-medium text-slate-200">
-                Quantite estimee (kits ou licences)
-              </span>
-              <input
-                name="quantity"
-                type="number"
-                min={1}
-                required
-                className="rounded-xl border border-slate-600 bg-slate-800 px-4 py-3 text-white placeholder:text-slate-500"
-                placeholder="10"
-              />
-            </label>
-            <input
-              type="text"
-              name="_gotcha"
-              className="hidden"
-              tabIndex={-1}
-              autoComplete="off"
+          {formAction ? (
+            <OrderInquiryForm
+              action={formAction}
+              formClassName="mt-8 grid max-w-xl gap-4"
             />
-            <button
-              type="submit"
-              className="mt-2 rounded-full bg-emerald-500 px-6 py-3 font-semibold text-white transition hover:bg-emerald-600"
-            >
-              Envoyer la demande
-            </button>
-          </form>
-          <p className="mt-4 text-xs text-slate-400">
-            Configurez{" "}
-            <code className="rounded bg-slate-800 px-1">
-              NEXT_PUBLIC_FORMSPREE_ORDER_URL
-            </code>{" "}
-            sur Vercel avec l&apos;URL de votre formulaire Formspree.
-          </p>
+          ) : (
+            <LeadFormFallback
+              contactEmail={contactEmail}
+              className="mt-8 max-w-xl rounded-xl border border-slate-600 bg-slate-800/60 p-5 text-slate-200"
+            />
+          )}
         </section>
 
         <section className="mt-12 rounded-3xl bg-white p-8 shadow-sm md:p-10">
