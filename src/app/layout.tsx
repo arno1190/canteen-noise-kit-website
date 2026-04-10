@@ -36,11 +36,20 @@ export const metadata: Metadata = {
     siteName: "Canteen Noise Kit — feu tricolore sonore",
     title: defaultTitle,
     description: defaultDescription,
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Canteen Noise Kit — feu tricolore sonore pour cantines scolaires",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: defaultTitle,
     description: defaultDescription,
+    images: ["/og.png"],
   },
   robots: { index: true, follow: true },
 };
