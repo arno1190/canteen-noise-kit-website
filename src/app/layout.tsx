@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SITE_ORIGIN, canonicalSiteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,13 +15,34 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const defaultTitle = "Canteen Noise Kit — Le Feu Tricolore Sonore";
+const defaultDescription =
+  "Kit IoT educatif : feu tricolore sonore pour les cantines scolaires. ESP32, micro, bande LED, ateliers avec les eleves.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_ORIGIN),
   title: {
-    default: "Canteen Noise Kit — Le Feu Tricolore Sonore",
+    default: defaultTitle,
     template: "%s | Canteen Noise Kit",
   },
-  description:
-    "Kit IoT educatif : feu tricolore sonore pour les cantines scolaires. ESP32, micro, bande LED, ateliers avec les eleves.",
+  description: defaultDescription,
+  alternates: {
+    canonical: canonicalSiteUrl,
+  },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: canonicalSiteUrl,
+    siteName: "Canteen Noise Kit — feu tricolore sonore",
+    title: defaultTitle,
+    description: defaultDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDescription,
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
