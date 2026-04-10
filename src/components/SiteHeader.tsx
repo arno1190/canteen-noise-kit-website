@@ -17,6 +17,12 @@ export function SiteHeader() {
           <Link href="/tarifs" className="transition hover:text-emerald-700">
             Tarifs &amp; commande
           </Link>
+          <Link
+            href="/#portail-pilote"
+            className="transition hover:text-emerald-700"
+          >
+            Pilote portail
+          </Link>
           <Link href="/#contact" className="transition hover:text-emerald-700">
             Contact
           </Link>

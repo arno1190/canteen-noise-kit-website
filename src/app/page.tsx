@@ -19,6 +19,18 @@ export default function Home() {
           avec ESP32, micro et bande LED. Les enfants montent, programment et
           installent eux-memes la solution.
         </p>
+        <p className="mt-4 max-w-2xl text-base text-slate-600">
+          <strong className="text-slate-800">Aujourd&apos;hui</strong>, tout
+          passe par des supports concrets (PDF, firmware, kits). Un{" "}
+          <strong className="text-slate-800">pilote portail</strong> pour les
+          partenaires B2G peut s&apos;ouvrir{" "}
+          <strong className="text-slate-800">sur invitation</strong>, sans
+          remplacer les PDF : ce site ne propose{" "}
+          <strong className="text-slate-800">
+            ni connexion portail ni date de mise en ligne
+          </strong>{" "}
+          publique — le board tranche le perimetre avant toute annonce.
+        </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link
             className="rounded-full bg-emerald-600 px-6 py-3 text-center font-semibold text-white transition hover:bg-emerald-700"
@@ -165,6 +177,81 @@ export default function Home() {
       </section>
 
       <section
+        id="portail-pilote"
+        className="mt-10 scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10"
+        aria-labelledby="titre-portail-pilote"
+      >
+        <h2 id="titre-portail-pilote" className="text-3xl font-bold">
+          PDF &amp; kits aujourd&apos;hui — pilote portail sur invitation
+        </h2>
+        <p className="mt-4 text-slate-700">
+          Pour les mairies, directions d&apos;etablissement et services
+          techniques : voici comment lire notre feuille de route publique sans
+          sur-promettre un produit en ligne.
+        </p>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <article className="rounded-2xl bg-emerald-50 p-6 ring-1 ring-emerald-100">
+            <h3 className="text-lg font-semibold text-emerald-900">
+              Piste A — Disponible maintenant
+            </h3>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-700">
+              <li>Guides PDF, firmware telechargeable, kits et ateliers.</li>
+              <li>
+                Commandes et devis via la page{" "}
+                <Link
+                  href="/tarifs"
+                  className="font-medium text-emerald-800 underline"
+                >
+                  Tarifs &amp; commande
+                </Link>
+                .
+              </li>
+              <li>
+                Reference operationnelle pour les equipes sur le terrain, hors
+                dependance a un compte eleve ou parent.
+              </li>
+            </ul>
+          </article>
+          <article className="rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-200">
+            <h3 className="text-lg font-semibold text-slate-900">
+              Piste B — Pilote portail (exploration B2G)
+            </h3>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-700">
+              <li>
+                Eventuel espace en ligne, <strong>invite seulement</strong>,
+                pour certains partenaires institutionnels — pas un portail grand
+                public.
+              </li>
+              <li>
+                <strong>Aucun calendrier</strong> ni liste de fonctionnalites
+                figees n&apos;est annonce ici : le board valide le perimetre
+                avant communication officielle.
+              </li>
+              <li>
+                Pas de bouton &laquo; connexion &raquo; sur ce site : manifestez
+                un interet via{" "}
+                <a
+                  href="#contact"
+                  className="font-medium text-emerald-800 underline"
+                >
+                  contact / precommande
+                </a>{" "}
+                pour un echange direction.
+              </li>
+            </ul>
+          </article>
+        </div>
+        <p className="mt-6 text-xs text-slate-500">
+          Source redactionnelle :{" "}
+          <span className="font-mono text-slate-600">
+            docs/portal-pilot-gtm-messaging.md
+          </span>
+          . Conforme a la garde produit : pas d&apos;auth, pas de promesse de
+          fonctionnalites portail non validees.
+        </p>
+      </section>
+
+      <section
         id="faq"
         className="mt-10 rounded-3xl bg-white p-8 shadow-sm md:p-10"
       >
@@ -194,6 +281,62 @@ export default function Home() {
             </summary>
             <p className="mt-2 text-sm text-slate-700">
               Oui, un format groupement/collectivite est prevu avec devis dedie.
+            </p>
+          </details>
+          <details className="rounded-xl border border-slate-200 p-4">
+            <summary className="cursor-pointer font-semibold">
+              Les donnees personnelles (RGPD) sont-elles traitees sur ce site ?
+            </summary>
+            <p className="mt-2 text-sm text-slate-700">
+              Les formulaires de contact ne servent qu&apos;a la relation
+              commerciale et projet. Tout futur pilote portail fera l&apos;objet
+              d&apos;informations contractuelles et de confidentialite avant
+              inscription — a valider avec la direction et le DPO de la
+              collectivite si besoin.
+            </p>
+          </details>
+          <details className="rounded-xl border border-slate-200 p-4">
+            <summary className="cursor-pointer font-semibold">
+              Ou sont hebergees les donnees si un portail voit le jour ?
+            </summary>
+            <p className="mt-2 text-sm text-slate-700">
+              Les choix d&apos;hebergement et de sous-traitants seront precises
+              dans la documentation juridique du pilote, pas sur cette landing.
+              Les equipes peuvent demander une fiche technique en amont via le
+              formulaire de contact.
+            </p>
+          </details>
+          <details className="rounded-xl border border-slate-200 p-4">
+            <summary className="cursor-pointer font-semibold">
+              Quelle est la source de verite entre PDF et futur portail ?
+            </summary>
+            <p className="mt-2 text-sm text-slate-700">
+              Aujourd&apos;hui, les PDF et kits restent la reference
+              operationnelle. Un portail pilote, s&apos;il existe, viendra en
+              complement pour certains partenaires ; toute divergence sera
+              tranchee et communiquee par le board avant generalisation.
+            </p>
+          </details>
+          <details className="rounded-xl border border-slate-200 p-4">
+            <summary className="cursor-pointer font-semibold">
+              Les eleves ou familles auront-ils un compte ?
+            </summary>
+            <p className="mt-2 text-sm text-slate-700">
+              Le dispositif en classe repose sur le kit et le guide. Aucun
+              compte eleve ou famille n&apos;est requis pour l&apos;offre
+              actuelle. Un eventuel pilote B2G cible les equipes et la
+              direction, pas un acces grand public aux mineurs.
+            </p>
+          </details>
+          <details className="rounded-xl border border-slate-200 p-4">
+            <summary className="cursor-pointer font-semibold">
+              Quand le portail sera-t-il disponible ?
+            </summary>
+            <p className="mt-2 text-sm text-slate-700">
+              Aucune date ni engagement de fonctionnalites n&apos;est affiche
+              ici. Les partenaires interesses peuvent signaler leur interet par
+              contact : le board valide le perimetre et le calendrier avant
+              toute annonce publique.
             </p>
           </details>
         </div>
