@@ -2,6 +2,11 @@
 
 Aligné sur la **garde CAN-58** : aucune promesse de date, de périmètre produit ou de fonctionnalités portail non arbitrées par le board. Le site public décrit un **pilote sur invitation**, pas un portail général disponible.
 
+## URL canonique (prod vs staging) — [CAN-69](/CAN/issues/CAN-69)
+
+- **Liens sortants (e-mails, LinkedIn, PDFs « vivants », board) :** **https://canteen-noise-kit-website.vercel.app/**
+- **Prévisualisation GitHub Pages** (phase revue [CAN-63](/CAN/issues/CAN-63)) : https://arno1190.github.io/paperclip-can63-onboarding-kit/ — **staging uniquement** ; ne pas l’utiliser comme lien principal sauf consigne explicite.
+
 ## Narratif bi-piste (paragraphe + puces)
 
 **Aujourd’hui**, les établissements et collectivités s’appuient sur des **supports hors ligne et tangibles** : guides PDF, firmware, kits et ateliers. C’est la **source de vérité opérationnelle** pour déployer le dispositif en cantine, sans dépendre d’un compte en ligne.

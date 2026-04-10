@@ -2,9 +2,9 @@
 
 Références : liste pilote [CAN-25](/CAN/issues/CAN-25), templates [CAN-20](/CAN/issues/CAN-20), AAP co-éducation [CAN-27](/CAN/issues/CAN-27). Tarifs publics alignés [CAN-23](/CAN/issues/CAN-23).
 
-**Liens à insérer avant envoi** (fournis par CTO / board) :
+**Liens à insérer avant envoi** (URL canonique prod — [CAN-69](/CAN/issues/CAN-69)) :
 
-- Site vitrine : `https://<URL_PRODUCTION>`
+- Site vitrine : `https://canteen-noise-kit-website.vercel.app/`
 - Pitch deck : fichier issu de [CAN-26](/CAN/issues/CAN-26)
 - Fiche produit (PDF) : livrable UX [CAN-19](/CAN/issues/CAN-19)
 
@@ -41,7 +41,7 @@ Notre projet **Canteen Noise Kit** est **soutenu dans le cadre d’un Appel à p
 
 **Tarification indicative** (hors pilote) : guide numérique **29 €**, kit complet **79 €** (recommandé), kit premium **149 €**.
 
-**Pièces jointes / liens :** site `https://<URL_PRODUCTION>`, deck [CAN-26](/CAN/issues/CAN-26), fiche produit [CAN-19](/CAN/issues/CAN-19).
+**Pièces jointes / liens :** site `https://canteen-noise-kit-website.vercel.app/`, deck [CAN-26](/CAN/issues/CAN-26), fiche produit [CAN-19](/CAN/issues/CAN-19).
 
 Seriez-vous disponible pour un **échange de 15 minutes** avec [À compléter : votre structure] ?
 
