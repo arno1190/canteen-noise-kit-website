@@ -1,12 +1,8 @@
 import Link from "next/link";
-import { LeadFormFallback } from "@/components/LeadFormFallback";
-import { NewsletterForm } from "@/components/NewsletterForm";
-import { getNewsletterFormAction } from "@/lib/formspree";
+import { ContactLeadSection } from "@/components/ContactLeadSection";
+import { FORM_COPY_FR } from "@/lib/form-copy-fr";
 
 export default function Home() {
-  const newsletterAction = getNewsletterFormAction();
-  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || null;
-
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 md:px-8 md:py-12">
       <section className="rounded-3xl bg-white p-8 shadow-sm md:p-12">
@@ -291,11 +287,7 @@ export default function Home() {
               Les donnees personnelles (RGPD) sont-elles traitees sur ce site ?
             </summary>
             <p className="mt-2 text-sm text-slate-700">
-              Les formulaires de contact ne servent qu&apos;a la relation
-              commerciale et projet. Tout futur pilote portail fera l&apos;objet
-              d&apos;informations contractuelles et de confidentialite avant
-              inscription — a valider avec la direction et le DPO de la
-              collectivite si besoin.
+              {FORM_COPY_FR.faq.rgpdContact}
             </p>
           </details>
           <details className="rounded-xl border border-slate-200 p-4">
@@ -303,10 +295,7 @@ export default function Home() {
               Ou sont hebergees les donnees si un portail voit le jour ?
             </summary>
             <p className="mt-2 text-sm text-slate-700">
-              Les choix d&apos;hebergement et de sous-traitants seront precises
-              dans la documentation juridique du pilote, pas sur cette landing.
-              Les equipes peuvent demander une fiche technique en amont via le
-              formulaire de contact.
+              {FORM_COPY_FR.faq.hostingFicheTech}
             </p>
           </details>
           <details className="rounded-xl border border-slate-200 p-4">
@@ -345,31 +334,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="contact"
-        className="mt-10 rounded-3xl bg-slate-900 p-8 text-white shadow-sm md:p-10"
-      >
-        <h2 className="text-3xl font-bold">Contact et precommande</h2>
-        <p className="mt-3 max-w-2xl text-slate-300">
-          Laissez votre email pour etre informe du lancement et recevoir les
-          informations de precommande.
-        </p>
-        {newsletterAction ? (
-          <NewsletterForm
-            action={newsletterAction}
-            formClassName="mt-6 flex flex-col flex-wrap gap-3 sm:flex-row"
-          />
-        ) : (
-          <LeadFormFallback contactEmail={contactEmail} />
-        )}
-        <p className="mt-3 text-xs text-slate-400">
-          Pour les commandes détaillées :{" "}
-          <Link href="/tarifs#commander" className="underline hover:text-white">
-            Tarifs &amp; commande
-          </Link>
-          .
-        </p>
-      </section>
+      <ContactLeadSection />
     </main>
   );
 }

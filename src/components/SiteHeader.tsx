@@ -23,7 +23,7 @@ export function SiteHeader() {
           >
             Pilote portail
           </Link>
-          <Link href="/#contact" className="transition hover:text-emerald-700">
+          <Link href="/contact/" className="transition hover:text-emerald-700">
             Contact
           </Link>
         </nav>
