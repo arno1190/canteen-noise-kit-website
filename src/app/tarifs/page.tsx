@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LeadFormFallback } from "@/components/LeadFormFallback";
 import { OrderInquiryForm } from "@/components/OrderInquiryForm";
+import { FORM_COPY_FR } from "@/lib/form-copy-fr";
 import { getOrderFormAction } from "@/lib/formspree";
 
 export const metadata: Metadata = {
@@ -198,8 +199,16 @@ export default function TarifsPage() {
         >
           <h2 className="text-3xl font-bold">Commande ou precommande</h2>
           <p className="mt-3 max-w-2xl text-slate-300">
-            Indiquez votre structure et le volume souhaite. Nous vous repondons
-            sous quelques jours ouvrables.
+            {formAction ? (
+              <>
+                Indiquez votre structure et le volume souhaite. Nous vous
+                repondons sous quelques jours ouvrables.
+              </>
+            ) : contactEmail ? (
+              FORM_COPY_FR.leadFormUnavailable.tarifsIntroWithEmail
+            ) : (
+              FORM_COPY_FR.leadFormUnavailable.tarifsIntroNoEmail
+            )}
           </p>
           {formAction ? (
             <OrderInquiryForm
